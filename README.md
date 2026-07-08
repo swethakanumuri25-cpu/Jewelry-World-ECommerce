@@ -1,77 +1,123 @@
-# Jewelry World – E-Commerce Web Application
+# Jewelry World – Full Stack E-Commerce Web Application
 
-## Overview
+Jewelry World is a full-stack e-commerce web application developed using Java, JSP, Servlets, JDBC, and MySQL following the MVC architecture. The application enables users to browse jewelry products, manage shopping carts and wishlists, place orders, submit product reviews, and manage personal accounts. An administrator portal provides product and order management capabilities.
 
-Jewelry World is a full-stack Java web application developed using Java, JSP, Servlets, JDBC, MySQL, HTML, CSS, and JavaScript following the MVC architecture. The application provides customers with a complete online jewelry shopping experience, including product browsing, shopping cart management, wishlist functionality, order placement, and product reviews. An administrative portal is also included to manage products, users, orders, and business analytics.
+The application is deployed on Render with a cloud-hosted MySQL database on Aiven.
+
+**Live Application**
+
+https://jewelry-world-ecommerce.onrender.com
 
 ---
 
 ## Key Features
 
-### Customer Features
+### Customer Module
 
-- User Registration and Login
-- User Profile Management
-- Browse Products
-- Search Products
-- Category-Based Product Filtering
-- Product Details Page
-- Shopping Cart
-- Wishlist Management
-- Buy Now
-- Checkout Process
-- Place Orders
-- View Order History
-- Cancel Orders
-- Product Rating and Review System
+- User registration and authentication
+- Secure session management
+- Browse products by category
+- Search products
+- Product details page
+- Shopping cart
+- Wishlist management
+- Place orders
+- View order history
+- Product ratings and reviews
+- User profile management
 
-### Administrator Features
+### Administrator Module
 
-- Secure Admin Login
-- Dashboard with Business Statistics
-- Product Management
-- Add, Update, and Delete Products
-- Order Management
-- User Management
-- Revenue Summary
-- Order Status Tracking
+- Administrator authentication
+- Product management
+  - Add products
+  - Update products
+  - Delete products
+- Order management
+- User management dashboard
 
 ---
 
 ## Technology Stack
 
-| Category | Technologies |
-|----------|--------------|
-| Programming Language | Java |
-| Backend | JSP, Servlets, JDBC |
-| Frontend | HTML5, CSS3, JavaScript |
-| Database | MySQL |
-| Web Server | Apache Tomcat 10 |
-| Build Tool | Maven |
-| Version Control | Git, GitHub |
-| Architecture | MVC (Model-View-Controller) |
+### Backend
+
+- Java
+- Jakarta Servlets
+- JSP
+- JDBC
+- Apache Tomcat 10
+- Maven
+
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+
+### Database
+
+- MySQL
+- Aiven Cloud Database
+
+### Deployment
+
+- Render
+- GitHub
+
+### Development Tools
+
+- Eclipse IDE
+- MySQL Workbench
+- Git
+
+---
+
+## Software Architecture
+
+The application follows the Model-View-Controller (MVC) design pattern.
+
+```
+Client Browser
+       │
+       ▼
+JSP Pages (View)
+       │
+       ▼
+Servlets (Controller)
+       │
+       ▼
+DAO Layer
+       │
+       ▼
+JDBC
+       │
+       ▼
+MySQL Database
+```
 
 ---
 
 ## Project Structure
 
-```text
+```
 Jewelry-World-ECommerce
 │
 ├── src
-│   └── main
-│       ├── java
-│       │   └── com.swetha.ecommerce
-│       │       ├── dao
-│       │       ├── model
-│       │       ├── servlet
-│       │       └── util
-│       │
-│       └── webapp
-│           ├── css
-│           ├── images
-│           ├── WEB-INF
-│           └── *.jsp
+│   ├── main
+│   │   ├── java
+│   │   │   ├── dao
+│   │   │   ├── model
+│   │   │   ├── servlet
+│   │   │   └── util
+│   │   │
+│   │   └── webapp
+│   │       ├── css
+│   │       ├── images
+│   │       ├── js
+│   │       ├── WEB-INF
+│   │       └── *.jsp
 │
 ├── pom.xml
 └── README.md
@@ -79,129 +125,154 @@ Jewelry-World-ECommerce
 
 ---
 
-## Database
+## Database Design
 
-**Database Name**
+The application uses a relational MySQL database consisting of the following tables:
 
-```text
-jewelrydb
-```
+- Users
+- Products
+- Orders
+- Cart
+- Wishlist
+- Reviews
+- Admin
 
-### Database Tables
-
-- users
-- products
-- cart
-- wishlist
-- orders
-- reviews
+Database credentials are managed securely using environment variables during deployment.
 
 ---
 
-## Application Workflow
+## Installation
 
-1. User registers and logs into the application.
-2. Products are retrieved from the MySQL database.
-3. Users browse, search, and filter products.
-4. Products can be added to the cart or wishlist.
-5. Users complete checkout and place orders.
-6. Orders are stored in the database and displayed in the user's order history.
-7. Users can submit ratings and reviews for purchased products.
-8. Administrators manage products, users, and orders through the admin dashboard.
-
----
-
-## Installation Guide
-
-### Clone the Repository
+### Clone the repository
 
 ```bash
-git clone https://github.com/swethakanumuri25-cpu/Jewelry-World-ECommerce.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/Jewelry-World-ECommerce.git
 ```
 
-### Import the Project
+### Open the project
 
-Import the project into Eclipse IDE or Visual Studio Code.
+Import the project into Eclipse IDE or IntelliJ IDEA.
 
-### Configure the Database
+### Configure Database
 
-Create a MySQL database named:
+Create a MySQL database and update the database connection settings.
 
-```text
-jewelrydb
+Example:
+
+```java
+URL = jdbc:mysql://localhost:3306/jewelrydb
+USER = root
+PASSWORD = your_password
 ```
 
-Import the provided SQL script.
+For cloud deployment, configure the following Render environment variable:
 
-### Configure Database Connection
-
-Open:
-
-```text
-src/main/java/com/swetha/ecommerce/util/DBConnection.java
 ```
-
-Update the following values:
-
-- Database URL
-- Username
-- Password
+DB_PASSWORD
+```
 
 ### Run the Application
 
-Deploy the project on Apache Tomcat 10.
+Deploy the project on Apache Tomcat 10 or later.
 
-Open:
+Access the application at:
 
-```text
-http://localhost:8080/ECommerce-App/
+```
+http://localhost:8080/Jewelry-World-ECommerce
 ```
 
 ---
 
-## Screenshots
+## Deployment
 
-Screenshots will be added for:
+**Application Hosting**
 
-- Home Page
-- Product Listing
-- Product Details
-- Shopping Cart
-- Wishlist
-- Checkout
-- Order History
-- User Profile
-- Admin Dashboard
-- Product Management
-- Customer Reviews
+Render
+
+**Database Hosting**
+
+Aiven MySQL Cloud
+
+---
+
+## Security Features
+
+- Prepared Statements to prevent SQL Injection
+- Session-based authentication
+- Environment variable configuration for database credentials
+- MVC architecture
+- Server-side input validation
 
 ---
 
 ## Future Enhancements
 
-- Secure Online Payment Integration
-- Email Notifications
-- Inventory Management
-- Product Recommendation System
-- Discount and Coupon Management
-- Order Tracking
-- Sales Analytics Dashboard
-- Responsive Mobile Interface
+- BCrypt password hashing
+- Payment gateway integration
+- Email verification
+- Password reset functionality
+- Product recommendation engine
+- Admin analytics dashboard
+- REST API support
+- Docker containerization
+- Unit and integration testing
 
 ---
 
-## Developer
+## Screenshots
+
+Include screenshots of the following pages:
+
+- Home Page
+- Products Page
+- Product Details
+- Login
+- Registration
+- Shopping Cart
+- Wishlist
+- Orders
+- Profile
+- Admin Dashboard
+
+---
+
+## Learning Outcomes
+
+This project demonstrates practical experience with:
+
+- Java EE Web Development
+- MVC Architecture
+- Object-Oriented Programming
+- JDBC Database Connectivity
+- MySQL Database Design
+- CRUD Operations
+- Session Management
+- Authentication and Authorization
+- Cloud Database Integration
+- Full Stack Web Development
+- Git Version Control
+- Application Deployment on Render
+
+---
+
+## Author
 
 **Swetha Kanumuri**
 
-Software Developer
+Master of Science in Data Science
 
-GitHub Profile
+University of North Texas
 
-https://github.com/swethakanumuri25-cpu
+GitHub
+
+https://github.com/YOUR_GITHUB_USERNAME
+
+LinkedIn
+
+https://linkedin.com/in/YOUR_LINKEDIN_PROFILE
 
 ---
 
 ## License
 
-This project has been developed for educational and portfolio purposes.
+This project was developed for educational purposes and portfolio demonstration.
