@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConnection {
 
     private static final String URL =
-            "jdbc:mysql://mysql-1fe3fbc9-swetha-156e.k.aivencloud.com:16698/defaultdb?sslMode=REQUIRED";
+    "jdbc:mysql://mysql-1fe3fbc9-swetha-156e.k.aivencloud.com:16698/defaultdb?ssl-mode=REQUIRED";
 
     private static final String USER = "avnadmin";
 
