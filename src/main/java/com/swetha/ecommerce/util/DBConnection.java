@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/jewelrydb";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String URL =
+    "jdbc:mysql://mysql-1fe3fbc9-swetha-156e.k.aivencloud.com:16698/defaultdb?sslMode=REQUIRED";
+
+    private static final String USER = "avnadmin";
+
+    private static final String PASSWORD = "YOUR_AIVEN_PASSWORD";
 
     public static Connection getConnection() {
 
