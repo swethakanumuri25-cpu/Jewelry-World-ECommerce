@@ -3,6 +3,7 @@ package com.swetha.ecommerce.servlet;
 import com.swetha.ecommerce.util.DBConnection;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,16 +18,30 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 
+    @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
 
+        response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+
+        out.println("Login request received");
+        out.println("Email: " + email);
 
         try {
 
             Connection con = DBConnection.getConnection();
+
+            if (con == null) {
+                out.println("ERROR: Database connection is NULL.");
+                return;
+            }
+
+            out.println("Database Connected Successfully");
 
             String sql = "SELECT * FROM users WHERE email=? AND password=?";
 
@@ -50,15 +65,20 @@ public class LoginServlet extends HttpServlet {
 
             } else {
 
-                response.sendRedirect("login.jsp?error=1");
+                out.println("Login Failed");
+                out.println("User not found or password incorrect.");
 
             }
 
+            rs.close();
+            ps.close();
+            con.close();
+
         } catch (Exception e) {
 
-            e.printStackTrace();
+            out.println("EXCEPTION OCCURRED:");
+            e.printStackTrace(out);
 
         }
-
     }
 }

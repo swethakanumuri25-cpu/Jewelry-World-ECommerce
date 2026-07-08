@@ -6,11 +6,19 @@ import java.sql.DriverManager;
 public class DBConnection {
 
     private static final String URL =
-    "jdbc:mysql://mysql-1fe3fbc9-swetha-156e.k.aivencloud.com:16698/defaultdb?sslMode=REQUIRED";
+            "jdbc:mysql://mysql-1fe3fbc9-swetha-156e.k.aivencloud.com:16698/defaultdb?sslMode=REQUIRED";
 
     private static final String USER = "avnadmin";
 
-    private static final String PASSWORD = System.getenv("DB_PASSWORD");
+    private static final String PASSWORD;
+
+    static {
+        PASSWORD = System.getenv("DB_PASSWORD");
+        System.out.println("======================================");
+        System.out.println("DB_PASSWORD loaded: " + (PASSWORD != null));
+        System.out.println("Password length: " + (PASSWORD == null ? 0 : PASSWORD.length()));
+        System.out.println("======================================");
+    }
 
     public static Connection getConnection() {
 
@@ -26,6 +34,7 @@ public class DBConnection {
 
         } catch (Exception e) {
 
+            System.out.println("DATABASE CONNECTION FAILED");
             e.printStackTrace();
 
         }
