@@ -1,8 +1,8 @@
 # Jewelry World – Full Stack E-Commerce Web Application
 
-Jewelry World is a full-stack e-commerce web application developed using Java, JSP, Servlets, JDBC, and MySQL following the MVC architecture. The application enables users to browse jewelry products, manage shopping carts and wishlists, place orders, submit product reviews, and manage personal accounts. An administrator portal provides product and order management capabilities.
+Jewelry World is a full-stack e-commerce web application developed using Java, JSP, Servlets, JDBC, and MySQL following the Model-View-Controller (MVC) architecture. The application enables customers to browse jewelry products, manage shopping carts and wishlists, submit product reviews, place orders, and manage user accounts through a responsive web interface. An administrator portal provides comprehensive product and order management functionality.
 
-The application is deployed on Render with a cloud-hosted MySQL database on Aiven.
+The project demonstrates full-stack Java web development, relational database design, CRUD operations, session management, and deployment of a cloud-hosted application.
 
 **Live Application**
 
@@ -10,31 +10,32 @@ https://jewelry-world-ecommerce.onrender.com
 
 ---
 
-## Key Features
+## Features
 
 ### Customer Module
 
 - User registration and authentication
-- Secure session management
+- Secure login and logout
+- Session management
 - Browse products by category
-- Search products
-- Product details page
+- Product search
+- Product details
 - Shopping cart
-- Wishlist management
+- Wishlist
 - Place orders
-- View order history
+- Order history
 - Product ratings and reviews
 - User profile management
 
 ### Administrator Module
 
-- Administrator authentication
+- Administrator login
 - Product management
-  - Add products
-  - Update products
-  - Delete products
+- Add products
+- Update products
+- Delete products
 - Order management
-- User management dashboard
+- Customer management
 
 ---
 
@@ -74,18 +75,16 @@ https://jewelry-world-ecommerce.onrender.com
 
 ---
 
-## Software Architecture
-
-The application follows the Model-View-Controller (MVC) design pattern.
+## Application Architecture
 
 ```
 Client Browser
        │
        ▼
-JSP Pages (View)
+JSP Pages
        │
        ▼
-Servlets (Controller)
+Servlet Layer
        │
        ▼
 DAO Layer
@@ -105,19 +104,19 @@ MySQL Database
 Jewelry-World-ECommerce
 │
 ├── src
-│   ├── main
-│   │   ├── java
-│   │   │   ├── dao
-│   │   │   ├── model
-│   │   │   ├── servlet
-│   │   │   └── util
-│   │   │
-│   │   └── webapp
-│   │       ├── css
-│   │       ├── images
-│   │       ├── js
-│   │       ├── WEB-INF
-│   │       └── *.jsp
+│   └── main
+│       ├── java
+│       │   ├── dao
+│       │   ├── model
+│       │   ├── servlet
+│       │   └── util
+│       │
+│       └── webapp
+│           ├── css
+│           ├── images
+│           ├── js
+│           ├── WEB-INF
+│           └── *.jsp
 │
 ├── pom.xml
 └── README.md
@@ -125,9 +124,9 @@ Jewelry-World-ECommerce
 
 ---
 
-## Database Design
+## Database
 
-The application uses a relational MySQL database consisting of the following tables:
+The application uses a relational MySQL database with the following core tables:
 
 - Users
 - Products
@@ -137,142 +136,98 @@ The application uses a relational MySQL database consisting of the following tab
 - Reviews
 - Admin
 
-Database credentials are managed securely using environment variables during deployment.
+Database credentials are securely managed using environment variables during deployment.
 
 ---
 
 ## Installation
 
-### Clone the repository
+Clone the repository.
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/Jewelry-World-ECommerce.git
+git clone https://github.com/swethakanumuri25-cpu/Jewelry-World-ECommerce.git
 ```
 
-### Open the project
+Open the project using Eclipse IDE or IntelliJ IDEA.
 
-Import the project into Eclipse IDE or IntelliJ IDEA.
+Configure the database connection.
 
-### Configure Database
-
-Create a MySQL database and update the database connection settings.
-
-Example:
-
-```java
-URL = jdbc:mysql://localhost:3306/jewelrydb
-USER = root
-PASSWORD = your_password
-```
-
-For cloud deployment, configure the following Render environment variable:
-
-```
-DB_PASSWORD
-```
-
-### Run the Application
-
-Deploy the project on Apache Tomcat 10 or later.
-
-Access the application at:
-
-```
-http://localhost:8080/Jewelry-World-ECommerce
-```
+Deploy the application on Apache Tomcat 10 or later.
 
 ---
 
 ## Deployment
 
-**Application Hosting**
+Application Hosting
 
-Render
+- Render
 
-**Database Hosting**
+Database Hosting
 
-Aiven MySQL Cloud
+- Aiven Cloud MySQL
+
+Environment Variables
+
+```
+DB_PASSWORD
+```
 
 ---
 
-## Security Features
+## Security
 
-- Prepared Statements to prevent SQL Injection
+- Prepared Statements for SQL Injection prevention
 - Session-based authentication
-- Environment variable configuration for database credentials
+- Environment variables for database credentials
 - MVC architecture
-- Server-side input validation
+- Server-side validation
 
 ---
 
-## Future Enhancements
+## Future Improvements
 
 - BCrypt password hashing
 - Payment gateway integration
 - Email verification
-- Password reset functionality
-- Product recommendation engine
+- Password reset
+- Order tracking
 - Admin analytics dashboard
-- REST API support
-- Docker containerization
+- REST API
+- Docker support
 - Unit and integration testing
 
 ---
 
 ## Screenshots
 
-Include screenshots of the following pages:
+Include screenshots of:
 
 - Home Page
 - Products Page
 - Product Details
-- Login
-- Registration
 - Shopping Cart
 - Wishlist
+- Login
+- User Profile
 - Orders
-- Profile
 - Admin Dashboard
-
----
-
-## Learning Outcomes
-
-This project demonstrates practical experience with:
-
-- Java EE Web Development
-- MVC Architecture
-- Object-Oriented Programming
-- JDBC Database Connectivity
-- MySQL Database Design
-- CRUD Operations
-- Session Management
-- Authentication and Authorization
-- Cloud Database Integration
-- Full Stack Web Development
-- Git Version Control
-- Application Deployment on Render
 
 ---
 
 ## Author
 
-**Swetha Kanumuri**
-
-Master of Science in Data Science
-
-University of North Texas
+Swetha Kanumuri
 
 GitHub
 
-https://github.com/YOUR_GITHUB_USERNAME
+https://github.com/swethakanumuri25-cpu
 
 LinkedIn
 
-https://linkedin.com/in/YOUR_LINKEDIN_PROFILE
+https://www.linkedin.com/in/swetha-kanumuri-63964819a/
 
 ---
 
 ## License
 
-This project was developed for educational purposes and portfolio demonstration.
+This project is intended for educational and portfolio purposes.
