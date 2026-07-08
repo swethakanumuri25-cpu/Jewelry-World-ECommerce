@@ -10,14 +10,10 @@ public class DBConnection {
 
     private static final String USER = "avnadmin";
 
-    private static final String PASSWORD;
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     static {
-        PASSWORD = System.getenv("DB_PASSWORD");
-        System.out.println("======================================");
-        System.out.println("DB_PASSWORD loaded: " + (PASSWORD != null));
-        System.out.println("Password length: " + (PASSWORD == null ? 0 : PASSWORD.length()));
-        System.out.println("======================================");
+        System.out.println("DB_PASSWORD = " + System.getenv("DB_PASSWORD"));
     }
 
     public static Connection getConnection() {
